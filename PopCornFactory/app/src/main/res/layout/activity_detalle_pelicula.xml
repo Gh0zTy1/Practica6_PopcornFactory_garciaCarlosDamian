@@ -47,8 +47,20 @@
         android:id="@+id/tv_pelicula_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet"
+        android:text="dddddd"
         android:textColor="@color/white"
         android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/btn_seleccionar_asientos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/accent_yellow"
+        android:textColor="@color/black_text"
+        android:text="@string/movie_selection_title"
+        android:textSize="18sp"
+        android:paddingVertical="12dp"/>
 
 </LinearLayout>

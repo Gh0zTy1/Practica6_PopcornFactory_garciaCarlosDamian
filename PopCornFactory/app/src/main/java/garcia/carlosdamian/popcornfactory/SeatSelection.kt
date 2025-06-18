@@ -7,7 +7,8 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity // Ensure this import is present
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat // ¡Importa esto para getDrawable!
 
 class SeatSelection : AppCompatActivity() {
 
@@ -49,9 +50,9 @@ class SeatSelection : AppCompatActivity() {
             val allRadioButtons = mutableListOf<RadioButton>()
             val rows = listOf(row1, row2, row3, row4, row5)
 
-            val rowPrefixes = listOf("A", "B", "C", "D", "E")
-
-            for ((rowIndex, radioGroup) in rows.withIndex()) {
+            // Se elimina 'radioGroup' de la declaración del bucle ya que no se usa directamente aquí.
+            // Ahora la variable se llamará '_' para indicar que no la usamos explícitamente.
+            for ((rowIndex, _) in rows.withIndex()) { // Corregido: 'radioGroup' se cambió a '_'
                 for (seatIndex in 1..6) {
                     val seatIdName = "seat_${rowIndex + 1}_$seatIndex"
                     val resId = resources.getIdentifier(seatIdName, "id", packageName)
@@ -69,8 +70,8 @@ class SeatSelection : AppCompatActivity() {
                 val seatTag = button.tag.toString()
                 if (peliculaObtenida.occupiedSeats.contains(seatTag)) {
                     button.isEnabled = false
-
-                    button.background = resources.getDrawable(R.drawable.icon_seat_unavailable)
+                    // Corregido: Usar ContextCompat.getDrawable() en lugar de resources.getDrawable()
+                    button.background = ContextCompat.getDrawable(this, R.drawable.icon_seat_unavailable)
                 }
             }
         }
@@ -78,16 +79,18 @@ class SeatSelection : AppCompatActivity() {
         val confirm: Button = findViewById(R.id.confirmButton)
         confirm.setOnClickListener {
             var selectedId = -1
-            var selectedRow: RadioGroup? = null
+            // 'selectedRow' ya se había eliminado en la corrección anterior, lo cual está bien.
 
 
             when {
-                row1.checkedRadioButtonId != -1 -> { selectedId = row1.checkedRadioButtonId; selectedRow = row1 }
-                row2.checkedRadioButtonId != -1 -> { selectedId = row2.checkedRadioButtonId; selectedRow = row2 }
-                row3.checkedRadioButtonId != -1 -> { selectedId = row3.checkedRadioButtonId; selectedRow = row3 }
-                row4.checkedRadioButtonId != -1 -> { selectedId = row4.checkedRadioButtonId; selectedRow = row4 }
-                row5.checkedRadioButtonId != -1 -> { selectedId = row5.checkedRadioButtonId; selectedRow = row5 } // Check 5th row
+                row1.checkedRadioButtonId != -1 -> { selectedId = row1.checkedRadioButtonId }
+                row2.checkedRadioButtonId != -1 -> { selectedId = row2.checkedRadioButtonId }
+                row3.checkedRadioButtonId != -1 -> { selectedId = row3.checkedRadioButtonId }
+                row4.checkedRadioButtonId != -1 -> { selectedId = row4.checkedRadioButtonId }
+                row5.checkedRadioButtonId != -1 -> { selectedId = row5.checkedRadioButtonId }
             }
+
+            Log.d("SeatSelectionDebug", "Selected ID on confirm click: $selectedId")
 
             if (selectedId != -1 && peliculaObtenida != null) {
                 val selectedRadioButton = findViewById<RadioButton>(selectedId)
