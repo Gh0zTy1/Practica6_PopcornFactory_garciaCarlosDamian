@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/dark_background"
+    android:gravity="center_horizontal"
+    tools:context=".TicketActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/purchase_successful"
+        android:textColor="@color/accent_yellow"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        />
+
+    <ImageView
+        android:id="@+id/ticket_movie_header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/headerbighero6" /> <TextView
+    android:id="@+id/ticket_movie_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Título de la Película"
+    android:textColor="@color/white_text"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:layout_marginTop="16dp"
+    android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asiento Seleccionado:"
+        android:textColor="@color/white_text"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/ticket_seat_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A1"
+        android:textColor="@color/accent_yellow"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/ticket_done_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hecho"
+        android:backgroundTint="@color/accent_orange"
+        android:textColor="@color/black_text"
+        android:textSize="18sp"
+        android:paddingHorizontal="40dp"
+        android:layout_marginTop="40dp" />
+
+</LinearLayout>

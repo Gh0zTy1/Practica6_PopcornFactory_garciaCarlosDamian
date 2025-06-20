@@ -51,4 +51,16 @@
         android:textColor="@color/white"
         android:padding="16dp"/>
 
+    <Button
+        android:id="@+id/btn_seleccionar_asientos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/accent_orange"
+        android:textColor="@color/black_text"
+        android:text="@string/select_seats_button_text"
+        android:textSize="18sp"
+        android:paddingVertical="12dp"/>
+
 </LinearLayout>

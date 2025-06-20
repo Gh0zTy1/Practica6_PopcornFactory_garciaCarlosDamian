@@ -1,5 +1,6 @@
 package garcia.carlosdamian.popcornfactory
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -101,9 +102,18 @@ class SeatSelection : AppCompatActivity() {
                     peliculaObtenida.occupiedSeats.add(seatTag)
                     selectedRadioButton.isEnabled = false
 
-                    Toast.makeText(this, "Seat $seatTag has been booked! Enjoy the movie!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Seat $seatTag has been booked!", Toast.LENGTH_LONG).show()
                     Log.d("SeatSelectionDebug", "Seat $seatTag booked successfully. Occupied seats: ${peliculaObtenida.occupiedSeats}")
 
+
+                    val ticketIntent = Intent(this, TicketActivity::class.java).apply {
+                        putExtra("movie_title", peliculaObtenida.titulo)
+                        putExtra("movie_header_res_id", peliculaObtenida.header)
+                        putExtra("selected_seat_tag", seatTag)
+                    }
+                    startActivity(ticketIntent)
+
+                     finish()
 
                 } else {
                     Toast.makeText(this, "Ese asiento ya está ocupado", Toast.LENGTH_SHORT).show()
@@ -123,6 +133,7 @@ class SeatSelection : AppCompatActivity() {
                 Log.d("SeatSelectionDebug", "Checked changed for group ID ${group.id}, checkedId: $checkedId")
 
                 if (checkedId != -1) {
+
                     for (j in radioGroups.indices) {
                         if (i != j) {
                             radioGroups[j].clearCheck()

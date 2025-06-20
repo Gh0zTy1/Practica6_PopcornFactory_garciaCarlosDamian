@@ -1,3 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">PopCornFactory</string>
+    <string name="welcome_message">Welcome to PopCornFactory</string>
+    <string name="start_button">Comenzar</string>
+    <string name="movie_selection_title">Selecciona tus Asientos</string>
+    <string name="screen_indicator">PANTALLA</string>
+    <string name="legend_available">Disponible</string>
+    <string name="legend_unavailable">Ocupado</string>
+    <string name="legend_your_selection">Tu Selección</string>
+    <string name="confirm_button_text">Confirmar</string>
+    <string name="welcome_to_popcorn_factory">Welcome to PopCorn Factory</string>
+    <string name="select_seats">Select Seats</string>
+    <string name="buy_tickets">Buy Tickets</string>
+    <string name="purchase_successful">¡Compra realizada!</string>
+    <string name="no_seat_selected">Por favor, selecciona un asiento.</string>
+    <string name="seat_already_occupied">El asiento %s ya está ocupado. Por favor, elige otro.</string>
+    <string name="select_seats_button_text">Seleccionar Asientos</string>
 </resources>

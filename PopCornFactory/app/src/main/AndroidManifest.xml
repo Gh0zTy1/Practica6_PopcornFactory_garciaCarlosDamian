@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name="garcia.carlosdamian.popcornfactory.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -30,6 +31,12 @@
             android:name="garcia.carlosdamian.popcornfactory.DetallePelicula"
             android:exported="false" />
 
-    </application>
+        <activity
+            android:name="garcia.carlosdamian.popcornfactory.SeatSelection"
+            android:exported="false" />
+
+        <activity
+            android:name="garcia.carlosdamian.popcornfactory.TicketActivity"
+            android:exported="false" /> </application>
 
 </manifest>
